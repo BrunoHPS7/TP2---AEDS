@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 #include "matriz.h"
-#include "coordenada.h"
-#include "ocorrencia.h"
-#include "palavra.h"
+//#include "coordenada.h"
+//#include "ocorrencia.h"
+//#include "palavra.h"
 
 int main() 
 {
