@@ -49,3 +49,87 @@ Matriz *criarMatrizNula()
     //Retorna Matriz com primeiro Elemento criado e vazio, além de definir suas dimensões
     return matriz;
 }
+
+
+Matriz *preencherMatriz(Matriz *matriz)
+{
+    //Verifica se a matriz recebida possui o primeiro elemento:
+    if (!matriz || !matriz->inicio) return NULL;
+
+    //Capturar Dimensões dessa Matriz:
+    int linhas = matriz->linhas;
+    int colunas = matriz->colunas;
+
+    //Criar vetor auxiliar para armazenar os elementos
+    Elemento **elementos = malloc(linhas * colunas * sizeof(Elemento *));
+    if (!elementos) return NULL;
+
+    //Primeiro elemento (0,0) já existe:
+    elementos[0] = matriz->inicio;
+    elementos[0]->letra = 'x';
+
+    //Criar os demais elementos da matriz
+    for (int i = 0; i < linhas; i++) 
+    {
+        for (int j = 0; j < colunas; j++) 
+        {
+            //Se for (0,0), já foi criado
+            if (i == 0 && j == 0) continue;
+
+            Elemento *elementoNovo = malloc(sizeof(Elemento));
+            if (!elementoNovo) 
+            {
+                //liberar elementos já criados
+                for (int k = 0; k < i * colunas + j; k++)
+                    if (elementos[k]) free(elementos[k]);
+                free(elementos);
+                return NULL;
+            }
+
+            elementoNovo->linha = i;
+            elementoNovo->coluna = j;
+            elementoNovo->letra = '-';
+
+            //Inicializa os ponteiros com NULL
+            elementoNovo->norte = NULL;
+            elementoNovo->sul = NULL;
+            elementoNovo->leste = NULL;
+            elementoNovo->oeste = NULL;
+            elementoNovo->nordeste = NULL;
+            elementoNovo->noroeste = NULL;
+            elementoNovo->suldeste = NULL;
+            elementoNovo->sudoeste = NULL;
+
+            elementos[i * colunas + j] = elementoNovo;
+        }
+    }
+
+    //Conectar todos os ponteiros:
+    for (int i = 0; i < linhas; i++) 
+    {
+        for (int j = 0; j < colunas; j++) 
+        {
+            // elementos é um vetor de ponteiros
+            Elemento *elementoNovo = elementos[i * colunas + j];
+
+            //Se o vizinho ao sentido desejado não for Null, o apontador recebe o ponteiro do vizinho que está em elementos(vetor de ponteiro)
+            elementoNovo->norte = (i > 0) ? elementos[(i - 1) * colunas + j] : NULL;
+            elementoNovo->sul = (i < linhas - 1) ? elementos[(i + 1) * colunas + j] : NULL;
+            elementoNovo->oeste = (j > 0) ? elementos[i * colunas + (j - 1)] : NULL;
+            elementoNovo->leste = (j < colunas - 1) ? elementos[i * colunas + (j + 1)] : NULL;
+
+            elementoNovo->noroeste = (i > 0 && j > 0) ? elementos[(i - 1) * colunas + (j - 1)] : NULL;
+            elementoNovo->nordeste = (i > 0 && j < colunas - 1) ? elementos[(i - 1) * colunas + (j + 1)] : NULL;
+            elementoNovo->sudoeste = (i < linhas - 1 && j > 0) ? elementos[(i + 1) * colunas + (j - 1)] : NULL;
+            elementoNovo->suldeste = (i < linhas - 1 && j < colunas - 1) ? elementos[(i + 1) * colunas + (j + 1)] : NULL;
+        }
+    }
+
+    //Definir o início da matriz (elemento 0,0 já está)
+    matriz->inicio = elementos[0];
+
+    //Liberar vetor auxiliar:
+    free(elementos);
+
+    return matriz;
+}
