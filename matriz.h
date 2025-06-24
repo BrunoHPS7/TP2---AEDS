@@ -11,4 +11,10 @@ typedef struct
 //Criar Matriz Nula (Linhas, Colunas):
 Matriz *criarMatrizNula();
 
+//Preencher Matriz:
+Matriz *preencherMatriz(Matriz *matriz);
+
+//Imprimit Matriz:
+void imprimirMatriz(Matriz *matriz);
+
 #endif

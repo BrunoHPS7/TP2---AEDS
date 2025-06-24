@@ -17,6 +17,12 @@ int main()
     }
     printf("Matriz criada com %d linhas e %d colunas\n", matriz->linhas, matriz->colunas);
 
+    //Preencher Matriz:
+    preencherMatriz(matriz);
+
+    //Imprimir Matriz:
+    imprimirMatriz(matriz);
+
     //Liberações de Memória
     free(matriz);
 

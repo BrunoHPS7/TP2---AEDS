@@ -133,3 +133,33 @@ Matriz *preencherMatriz(Matriz *matriz)
 
     return matriz;
 }
+
+
+//Imprimit Matriz:
+void imprimirMatriz(Matriz *matriz)
+{
+    //Testa se Matriz está Vazia:
+    if (!matriz || !matriz->inicio) 
+    {
+        printf("Matriz vazia.\n");
+        return;
+    }
+
+    //Pega o Elemento atual, que no caso é inciado com o primeiro elemento:
+    Elemento *linhaAtual = matriz->inicio;
+
+    while (linhaAtual) 
+    {
+        //A cada linha nova, começamos no primeiro elemento da linha:
+        Elemento *colunaAtual = linhaAtual;
+
+        while (colunaAtual) 
+        {
+            printf("%c ", colunaAtual->letra); //Print do elemento na Linha
+            colunaAtual = colunaAtual->leste; //Percorremos a linha
+        }
+
+        printf("\n");
+        linhaAtual = linhaAtual->sul; //Linha Atual se movimenta para baixo (Proxima linha)
+    }
+}
