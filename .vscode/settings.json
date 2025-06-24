@@ -57,6 +57,7 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "matriz.h": "c"
+    "matriz.h": "c",
+    "elemento.h": "c"
   }
 }

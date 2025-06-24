@@ -8,8 +8,24 @@
 
 int main() 
 {
+    //Criar Matriz de Caça-Palvras
+    Matriz* matriz = criarMatrizNula();
+    if (!matriz) 
+    {
+        printf("Erro ao criar matriz!\n");
+        return 1;
+    }
+    printf("Matriz criada com %d linhas e %d colunas\n", matriz->linhas, matriz->colunas);
 
-    /*// Criar Matriz (Caça-Palavras)
+    //Liberações de Memória
+    free(matriz);
+
+    return 0;
+}
+
+
+/* MAIN ANTIGO:
+// Criar Matriz (Caça-Palavras)
     Matriz *matriz = criarMatriz();
     if (!matriz) {
         printf("Erro ao criar matriz!\n");
@@ -43,5 +59,3 @@ int main()
     desalocarMatrizOcorrencia(matrizOcorrencia);
     desalocarPalavras(palavras);
     */
-    return 0;
-}

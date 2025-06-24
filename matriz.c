@@ -1,13 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "elemento.h"
 #include "matriz.h"
 
 //Criar Matriz Nula (I,J):
-Matriz *criarMatrizNula(int linhas, int colunas)
+Matriz *criarMatrizNula()
 {
     //Alocar memória para a Matriz:
     Matriz *matriz = malloc(sizeof(Matriz));
     if (!matriz) return NULL;
+
+    //Pegar Dimensoes:
+    int linhas, colunas;
+    printf("Digite a quantidade de Linhas e Colunas de seu Caça-Palavras:");
+    scanf("%d%d", &linhas, &colunas);
 
     //Definir dimensões:
     matriz->linhas = linhas;

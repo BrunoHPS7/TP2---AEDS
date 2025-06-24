@@ -1,4 +1,5 @@
 #ifndef ELEMENTO_H
+#define ELEMENTO_H
 
 typedef struct Elemento
 {
@@ -8,8 +9,5 @@ typedef struct Elemento
     struct Elemento *nordeste, *noroeste, *suldeste, *sudoeste; //Ponteiros Diagonais
 
 }Elemento;
-
-
-
 
 #endif
