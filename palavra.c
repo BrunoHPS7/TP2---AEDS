@@ -30,3 +30,24 @@ Lista *criarLista(Lista *lista, int tamanhoLista)
     }
     return lista;
 }
+
+
+//Preencher Lista de Palavras:
+void preencherLista(Lista *lista)
+{
+    //Verifica se a Lista não está Vazia:
+    if(!lista || lista->primeiro == lista->ultimo) return lista;
+
+    //Começa no primeiro elemento real:
+    Palavra *palavraNova = lista->primeiro->proxima;
+
+    for(int i=0; i<lista->tamanho && palavraNova!=NULL; i++)
+    {
+        
+        printf("Digite a palavra [%d]: ", i);
+        fgets(palavraNova->palavra, sizeof(palavraNova->palavra), stdin);
+        palavraNova->encontrada = false;
+        palavraNova = palavraNova->proxima;
+        printf("\n");
+    }
+}
