@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "matriz.h"
+#include "palavra.h"
 //#include "coordenada.h"
 //#include "ocorrencia.h"
 //#include "palavra.h"
@@ -9,7 +10,7 @@
 int main() 
 {
     //Criar Matriz de Caça-Palvras
-    Matriz* matriz = criarMatrizNula();
+    Matriz *matriz = criarMatrizNula();
     if (!matriz) 
     {
         printf("Erro ao criar matriz!\n");
@@ -23,8 +24,25 @@ int main()
     //Imprimir Matriz:
     imprimirMatriz(matriz);
 
+     //Criar Lista de Palavras:
+    Lista *lista = malloc(sizeof(Lista));
+    if (!lista) 
+    {
+    printf("Erro ao alocar lista\n");
+    return 1;
+    }
+    criarLista(lista, 3);
+
+
+    //Prencher Lista:
+    preencherLista(lista);
+
+    //Imprimir Lista:
+    imprimirLista(lista);
+
     //Liberações de Memória
     free(matriz);
+    free(lista);
 
     return 0;
 }

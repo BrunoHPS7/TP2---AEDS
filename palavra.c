@@ -36,18 +36,33 @@ Lista *criarLista(Lista *lista, int tamanhoLista)
 void preencherLista(Lista *lista)
 {
     //Verifica se a Lista não está Vazia:
-    if(!lista || lista->primeiro == lista->ultimo) return lista;
+    if(!lista || lista->primeiro == lista->ultimo) return;
 
     //Começa no primeiro elemento real:
     Palavra *palavraNova = lista->primeiro->proxima;
 
     for(int i=0; i<lista->tamanho && palavraNova!=NULL; i++)
     {
-        
-        printf("Digite a palavra [%d]: ", i);
-        fgets(palavraNova->palavra, sizeof(palavraNova->palavra), stdin);
+        printf("Digite a palavra [%d]: ", i+1);
+        scanf("%99s", palavraNova->palavra);
         palavraNova->encontrada = false;
         palavraNova = palavraNova->proxima;
-        printf("\n");
+    }
+}
+
+
+//Imprimir Lista de Palavras:
+void imprimirLista(Lista *lista)
+{
+    //Verifica se a Lista não está Vazia:
+    if(!lista || lista->primeiro == lista->ultimo) return;
+
+    //Começa no primeiro elemento real:
+    Palavra *palavraAtual = lista->primeiro->proxima;
+
+    for(int i=0; i<lista->tamanho && palavraAtual !=NULL; i++)
+    {
+        printf("Palavra: %s |(x,y)\n", palavraAtual->palavra);
+        palavraAtual = palavraAtual->proxima;
     }
 }

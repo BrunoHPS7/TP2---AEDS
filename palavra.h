@@ -20,8 +20,15 @@ typedef struct Lista
 
 
 //Criar Lista de Palavras:
-Palavra criarLista(Palavra *palavra, int tamanahoLista);
+Lista *criarLista(Lista *lista, int tamanhoLista);
 
+
+//Preencher Lista de Palavras:
+void preencherLista(Lista *lista);
+
+
+//Imprimir Lista de Palavras:
+void imprimirLista(Lista *lista);
 
 
 #endif
