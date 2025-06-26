@@ -64,9 +64,12 @@ Matriz *preencherMatriz(Matriz *matriz)
     Elemento **elementos = malloc(linhas * colunas * sizeof(Elemento *));
     if (!elementos) return NULL;
 
-    //Primeiro elemento (0,0) já existe:
+    //Pegar Primeiro Elemento:
+    char inserirElemento;
+    scanf(" %c", &inserirElemento);
+    
     elementos[0] = matriz->inicio;
-    elementos[0]->letra = 'x';
+    elementos[0]->letra = inserirElemento;
 
     //Criar os demais elementos da matriz
     for (int i = 0; i < linhas; i++) 
@@ -75,6 +78,9 @@ Matriz *preencherMatriz(Matriz *matriz)
         {
             //Se for (0,0), já foi criado
             if (i == 0 && j == 0) continue;
+
+            //Pegar Elemento:
+            scanf(" %c", &inserirElemento);
 
             Elemento *elementoNovo = malloc(sizeof(Elemento));
             if (!elementoNovo) 
@@ -88,7 +94,7 @@ Matriz *preencherMatriz(Matriz *matriz)
 
             elementoNovo->linha = i;
             elementoNovo->coluna = j;
-            elementoNovo->letra = '-';
+            elementoNovo->letra = inserirElemento;
 
             //Inicializa os ponteiros com NULL
             elementoNovo->norte = NULL;
@@ -147,6 +153,7 @@ void imprimirMatriz(Matriz *matriz)
 
     //Pega o Elemento atual, que no caso é inciado com o primeiro elemento:
     Elemento *linhaAtual = matriz->inicio;
+    printf("Começando Impressão:\n");
 
     while (linhaAtual) 
     {
