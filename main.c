@@ -24,16 +24,14 @@ int main()
     //Imprimir Matriz:
     imprimirMatriz(matriz);
 
-     //Criar Lista de Palavras:
-    Lista *lista = malloc(sizeof(Lista));
+    //Criar Lista de Palavras:
+    Lista *lista = criarLista();
     if (!lista) 
     {
     printf("Erro ao alocar lista\n");
     return 1;
     }
-    criarLista(lista, 3);
-
-
+  
     //Prencher Lista:
     preencherLista(lista);
 

@@ -5,8 +5,17 @@
 
 
 //Criar Lista de Palavras:
-Lista *criarLista(Lista *lista, int tamanhoLista)
+Lista *criarLista()
 {
+    //Alocar Memória para Lista:
+    Lista *lista = malloc(sizeof(Lista));
+    if(!lista) return NULL;
+    
+    //Capturar Tamanho da Lista
+    int tamanhoLista;
+    printf("Digite o tamanho de sua Lista de Palavras: ");
+    scanf(" %d", &tamanhoLista);
+
     //Inicializar Tamanho da Lista:
     lista->tamanho = tamanhoLista;
 

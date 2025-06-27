@@ -20,7 +20,7 @@ typedef struct Lista
 
 
 //Criar Lista de Palavras:
-Lista *criarLista(Lista *lista, int tamanhoLista);
+Lista *criarLista();
 
 
 //Preencher Lista de Palavras:
