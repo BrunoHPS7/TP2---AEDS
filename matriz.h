@@ -17,4 +17,7 @@ Matriz *preencherMatriz(Matriz *matriz);
 //Imprimit Matriz:
 void imprimirMatriz(Matriz *matriz);
 
+//Desalocar Matriz:
+void desalocarMatriz(Matriz *matriz);
+
 #endif

@@ -22,13 +22,14 @@ typedef struct Lista
 //Criar Lista de Palavras:
 Lista *criarLista();
 
-
 //Preencher Lista de Palavras:
 void preencherLista(Lista *lista);
 
-
 //Imprimir Lista de Palavras:
 void imprimirLista(Lista *lista);
+
+//Desalocar Memória:
+void desalocarLista(Lista *lista);
 
 
 #endif

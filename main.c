@@ -39,8 +39,8 @@ int main()
     imprimirLista(lista);
 
     //Liberações de Memória
-    free(matriz);
-    free(lista);
+    desalocarMatriz(matriz);
+    desalocarLista(lista);
 
     return 0;
 }

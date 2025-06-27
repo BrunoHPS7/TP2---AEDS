@@ -75,3 +75,28 @@ void imprimirLista(Lista *lista)
         palavraAtual = palavraAtual->proxima;
     }
 }
+
+
+//Desalocar Memória:
+void desalocarLista(Lista *lista)
+{
+    //Verificar Lista Vazia:  
+    if (!lista) return;
+
+    //Começamos do Primeiro Elemento
+    Palavra *atual = lista->primeiro;
+    Palavra *proximo;
+
+    //Desalocamos o atual, e fazemos atual virar o proximo enquanto o atual não for NULL
+    while(atual != NULL)
+    {
+        proximo = atual->proxima;
+        free(atual);
+        atual = proximo;
+    }
+
+    // Zera a estrutura da lista
+    lista->primeiro = NULL;
+    lista->ultimo = NULL;
+    lista->tamanho = 0;
+}

@@ -170,3 +170,31 @@ void imprimirMatriz(Matriz *matriz)
         linhaAtual = linhaAtual->sul; //Linha Atual se movimenta para baixo (Proxima linha)
     }
 }
+
+
+//Desalocar Matriz:
+void desalocarMatriz(Matriz *matriz)
+{
+    //Verifica se Matriz está Vazia:
+    if (!matriz || !matriz->inicio) return;
+
+    //Pegar Primeiro Elemento:
+    Elemento *linhaAtual = matriz->inicio;
+
+    //Desalocamento:   
+    while (linhaAtual != NULL)
+    {
+        Elemento *colunaAtual = linhaAtual;
+        Elemento *proximaLinha = linhaAtual->sul;
+
+        while (colunaAtual != NULL)
+        {
+            Elemento *proximaColuna = colunaAtual->leste;
+            free(colunaAtual);
+            colunaAtual = proximaColuna;
+        }
+
+        linhaAtual = proximaLinha;
+    }
+    matriz->inicio = NULL;
+}
