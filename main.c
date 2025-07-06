@@ -3,47 +3,53 @@
 
 #include "matriz.h"
 #include "palavra.h"
-//#include "coordenada.h"
-//#include "ocorrencia.h"
-//#include "palavra.h"
+#include "ocorrencia.h"
 
 int main() 
 {
-    //Criar Matriz de Caça-Palvras
+    //Criar matriz de caça-palavras
     Matriz *matriz = criarMatrizNula();
-    if (!matriz) 
-    {
+    if (!matriz) {
         printf("Erro ao criar matriz!\n");
         return 1;
     }
+
     printf("Matriz criada com %d linhas e %d colunas\n", matriz->linhas, matriz->colunas);
 
-    //Preencher Matriz:
+    //Preencher matriz
     preencherMatriz(matriz);
 
-    //Imprimir Matriz:
+    //Imprimir matriz
     imprimirMatriz(matriz);
 
-    //Criar Lista de Palavras:
-    Lista *lista = criarLista();
-    if (!lista) 
-    {
-    printf("Erro ao alocar lista\n");
-    return 1;
+    //Criar lista de palavras
+    Lista *listaPalavras = criarLista();
+    if (!listaPalavras) {
+        printf("Erro ao alocar lista de palavras\n");
+        desalocarMatriz(matriz);
+        return 1;
     }
-  
-    //Prencher Lista:
-    preencherLista(lista);
 
-    //Imprimir Lista:
-    imprimirLista(lista);
+    //Preencher lista de palavras
+    preencherLista(listaPalavras);
 
-    //Liberações de Memória
+    //Imprimir lista
+    imprimirLista(listaPalavras);
+
+    //Criar lista de ocorrências (baseado na matriz)
+    Ocorrencia *ocorrencias = criarListaOcorrencia(matriz);
+
+    //Imprimir lista de ocorrências
+    imprimirOcorrencias(ocorrencias);
+
+    //Liberações
     desalocarMatriz(matriz);
-    desalocarLista(lista);
+    desalocarLista(listaPalavras);
+    liberarOcorrencias(ocorrencias);
 
     return 0;
 }
+
 
 
 /* MAIN ANTIGO:

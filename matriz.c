@@ -51,6 +51,7 @@ Matriz *criarMatrizNula()
 }
 
 
+//Preencher Matriz:
 Matriz *preencherMatriz(Matriz *matriz)
 {
     //Verifica se a matriz recebida possui o primeiro elemento:
