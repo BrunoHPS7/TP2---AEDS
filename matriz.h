@@ -1,6 +1,14 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
-#include "elemento.h"
+
+typedef struct Elemento
+{
+    char letra;
+    int linha, coluna;
+    struct Elemento *norte, *sul, *leste, *oeste; //Ponteiros Verticais e Horizontais
+    struct Elemento *nordeste, *noroeste, *suldeste, *sudoeste; //Ponteiros Diagonais
+
+}Elemento;
 
 typedef struct
 {

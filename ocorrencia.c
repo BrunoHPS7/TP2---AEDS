@@ -62,9 +62,9 @@ Ocorrencia *criarListaOcorrencia(Matriz *matriz)
                     Coordenada *aux = ocorrencia->coordenadas;
                     while (aux->proxima)
                     {
-                        aux = aux->proxima; //Avança até o final da lista:
+                        aux = aux->proxima; //Avança até o final da lista
                     } 
-                    aux->proxima = nova; //Insere nova coordenada:
+                    aux->proxima = nova; 
                 }
             }
             //Avança para a próxima coluna:
@@ -76,7 +76,7 @@ Ocorrencia *criarListaOcorrencia(Matriz *matriz)
     return listaOcorrencia;
 }
 
-//Imprimir Ocorrencias
+//Imprimir Ocorrencias:
 void imprimirOcorrencias(Ocorrencia *listaOcorrencia) 
 {
     while (listaOcorrencia) 
@@ -163,7 +163,7 @@ void buscarPalavras(Matriz *matriz, Lista *listaPalavras)
                         
                         if (palavraAtual->palavra[i] == '\0') 
                         {
-                            // Palavra encontrada
+                            //Palavra encontrada nas posições:
                             palavraAtual->xi = coluna->linha; 
                             palavraAtual->yi = coluna->coluna; 
                             palavraAtual->xf = atual->linha; 

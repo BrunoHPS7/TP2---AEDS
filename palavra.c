@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "palavra.h"
-
-
 
 //Criar Lista de Palavras:
 Lista *criarLista()
@@ -11,9 +10,9 @@ Lista *criarLista()
     Lista *lista = malloc(sizeof(Lista));
     if(!lista) return NULL;
     
-    //Capturar Tamanho da Lista
+    //Capturar Tamanho da Lista:
     int tamanhoLista;
-    printf("Digite o tamanho de sua Lista de Palavras: ");
+    printf("\nDigite o tamanho de sua Lista de Palavras: ");
     scanf(" %d", &tamanhoLista);
 
     //Inicializar Tamanho da Lista:
@@ -40,7 +39,6 @@ Lista *criarLista()
     return lista;
 }
 
-
 //Preencher Lista de Palavras:
 void preencherLista(Lista *lista)
 {
@@ -59,7 +57,6 @@ void preencherLista(Lista *lista)
     }
 }
 
-
 //Imprimir Lista de Palavras:
 void imprimirLista(Lista *lista)
 {
@@ -69,15 +66,15 @@ void imprimirLista(Lista *lista)
     //Começa no primeiro elemento real:
     Palavra *palavraAtual = lista->primeiro->proxima;
 
+    //Resultado Final:
+    printf("\nComeçando Impressão:\n");
     for(int i = 0; i < lista->tamanho && palavraAtual != NULL; i++)
     {
-        printf("Palavra: %s | Início: (%d, %d) | Fim: (%d, %d)\n", 
-               palavraAtual->palavra, palavraAtual->xi, palavraAtual->yi, palavraAtual->xf, palavraAtual->yf);
+        printf("%d %d %d %d %s\n", palavraAtual->xi, palavraAtual->yi, 
+            palavraAtual->xf, palavraAtual->yf, palavraAtual->palavra);
         palavraAtual = palavraAtual->proxima;
     }
 }
-
-
 
 //Desalocar Memória:
 void desalocarLista(Lista *lista)
@@ -85,11 +82,10 @@ void desalocarLista(Lista *lista)
     //Verificar Lista Vazia:  
     if (!lista) return;
 
-    //Começamos do Primeiro Elemento
+    //Começar do Primeiro Elemento:
     Palavra *atual = lista->primeiro;
     Palavra *proximo;
 
-    //Desalocamos o atual, e fazemos atual virar o proximo enquanto o atual não for NULL
     while(atual != NULL)
     {
         proximo = atual->proxima;
@@ -97,7 +93,7 @@ void desalocarLista(Lista *lista)
         atual = proximo;
     }
 
-    // Zera a estrutura da lista
+    //Zerar a estrutura da lista:
     lista->primeiro = NULL;
     lista->ultimo = NULL;
     lista->tamanho = 0;
