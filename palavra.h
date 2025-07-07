@@ -31,5 +31,4 @@ void imprimirLista(Lista *lista);
 //Desalocar Memória:
 void desalocarLista(Lista *lista);
 
-
 #endif
