@@ -19,7 +19,6 @@ typedef struct Lista
     int tamanho;
 }Lista;
 
-
 //Criar Lista de Palavras:
 Lista *criarLista();
 
