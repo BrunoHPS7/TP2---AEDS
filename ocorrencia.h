@@ -2,6 +2,7 @@
 #define OCORRENCIA_H
 
 #include "matriz.h"
+#include "palavra.h"
 
 typedef struct Coordenada 
 {
@@ -25,5 +26,11 @@ void imprimirOcorrencias(Ocorrencia *lista);
 
 //Liberar Ocorrencias:
 void liberarOcorrencias(Ocorrencia *lista);
+
+//Seguir Direção:
+Elemento *seguirDirecao(Elemento *atual, int direcao);
+
+//Buscar Palavras:
+void buscarPalavras(Matriz *matriz, Lista *listaPalavras);
 
 #endif

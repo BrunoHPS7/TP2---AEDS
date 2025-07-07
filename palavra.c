@@ -69,12 +69,14 @@ void imprimirLista(Lista *lista)
     //Começa no primeiro elemento real:
     Palavra *palavraAtual = lista->primeiro->proxima;
 
-    for(int i=0; i<lista->tamanho && palavraAtual !=NULL; i++)
+    for(int i = 0; i < lista->tamanho && palavraAtual != NULL; i++)
     {
-        printf("Palavra: %s |(x,y)\n", palavraAtual->palavra);
+        printf("Palavra: %s | Início: (%d, %d) | Fim: (%d, %d)\n", 
+               palavraAtual->palavra, palavraAtual->xi, palavraAtual->yi, palavraAtual->xf, palavraAtual->yf);
         palavraAtual = palavraAtual->proxima;
     }
 }
+
 
 
 //Desalocar Memória:

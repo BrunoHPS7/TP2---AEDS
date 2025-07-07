@@ -9,6 +9,7 @@ typedef struct Palavra
     char palavra[TamanhoPalavra];
     bool encontrada;
     struct Palavra *proxima;
+    int xi, yi, xf, yf; //X e Y Iniciais e Finais
 }Palavra;
 
 typedef struct Lista

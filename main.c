@@ -42,6 +42,12 @@ int main()
     //Imprimir lista de ocorrências
     imprimirOcorrencias(ocorrencias);
 
+    //Buscar palavras na matriz
+    buscarPalavras(matriz, listaPalavras);
+
+    //Imprimir lista de palavras com posições atualizadas
+    imprimirLista(listaPalavras);
+
     //Liberações
     desalocarMatriz(matriz);
     desalocarLista(listaPalavras);
@@ -49,6 +55,7 @@ int main()
 
     return 0;
 }
+
 
 
 
